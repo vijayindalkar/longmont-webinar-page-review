@@ -131,6 +131,22 @@
 .lo-doc-card__name{color:var(--lo-white);font-size:20px;font-weight:700;line-height:1.2;}
 .lo-doc-card__title{color:var(--lo-orange);font-size:15.5px;font-weight:800;}
 .lo-doc-card__sub{color:#d6e3f2;font-size:14px;}
+.lo-hero__side{min-width:0;}
+.lo-review{
+  display:grid;gap:9px;margin:0 0 18px;padding:15px 20px 16px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.22);border-radius:16px;
+}
+.lo-review__top{
+  display:flex;align-items:center;flex-wrap:wrap;gap:4px 9px;
+  font-size:14px;line-height:1.3;color:#d6e3f2;
+}
+.lo-review__g{flex:0 0 22px;width:22px;height:22px;}
+.lo-review__stars{display:inline-flex;gap:2px;}
+.lo-review__top b{color:var(--lo-white);font-weight:800;}
+.lo-page p.lo-review__quote{
+  margin:0;font-size:17px;line-height:1.45;font-weight:600;color:var(--lo-white);
+}
+.lo-page p.lo-review__by{margin:0;font-size:14px;line-height:1.3;color:#d6e3f2;}
 .lo-formcard{
   background:var(--lo-white);border-radius:18px;
   box-shadow:0 26px 60px rgba(0,0,0,.28);
@@ -205,8 +221,9 @@
 .lo-life__image{
   overflow:hidden;border-radius:var(--lo-radius);border:1px solid var(--lo-line);
   box-shadow:0 20px 48px rgba(4,67,137,.16);background:var(--lo-white);
+  aspect-ratio:1/1;
 }
-.lo-life__image img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;}
+.lo-life__image img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:50% 50%;}
 .lo-life__copy .lo-lede{margin-bottom:0;}
 .lo-life .lo-areas{grid-template-columns:repeat(3,1fr);margin-top:28px;}
 .lo-life .lo-area{padding:20px 10px;}
@@ -284,11 +301,23 @@
 .lo-sticky .lo-btn{width:100%;padding:15px 20px;font-size:16.5px;}
 .lo-sticky.is-on{display:block;}
 #lo-register{scroll-margin-top:18px;}
-@media (max-width:1279px){
-  .lo-hero__pain[src]{opacity:.13;}
+@media (min-width:1001px){
+  .lo-page .lo-hero__pain{max-width:none;width:auto;height:100%;top:0;left:max(-60px,calc(50% - 700px));}
+  .lo-page .lo-hero__pain[src]{opacity:.16;}
+}
+@media (min-width:1001px) and (max-width:1279px){
+  .lo-page .lo-hero__pain[src]{opacity:.13;}
+}
+@media (min-width:1700px){
+  .lo-page .lo-hero__pain{
+    left:auto;right:calc(50% + 560px);top:50%;transform:translateY(-50%);
+    width:min(470px,calc(50vw - 560px));height:auto;
+  }
+  .lo-page .lo-hero__pain[src]{opacity:.5;}
 }
 @media (max-width:1000px){
   .lo-hero__inner{grid-template-columns:1fr;}
+  .lo-hero__side{width:100%;max-width:720px;margin-left:auto;margin-right:auto;}
   .lo-hero__cta{display:block;margin-bottom:34px;}
   .lo-hero__pain{width:auto;height:min(64%,780px);left:auto;right:-13%;top:7%;}
   .lo-hero__pain[src]{opacity:.14;}
@@ -299,6 +328,7 @@
   .lo-doc{grid-template-columns:1fr;}
   .lo-doc__photo{max-width:420px;margin:0 auto;}
   .lo-life{grid-template-columns:1fr;}
+  .lo-life__image{aspect-ratio:4/3;}
   .lo-areas{grid-template-columns:repeat(3,1fr);}
   .lo-foot__grid{grid-template-columns:1fr;}
 }
@@ -319,6 +349,9 @@
   .lo-doc-card__name{font-size:18px;}
   .lo-doc-card__title{font-size:14.5px;}
   .lo-doc-card__sub{font-size:13.5px;}
+  .lo-review{padding:14px 16px 15px;border-radius:14px;margin-bottom:16px;}
+  .lo-page p.lo-review__quote{font-size:16.5px;}
+  .lo-life__image{aspect-ratio:1/1;}
   .lo-hero__pain{width:auto;height:min(56%,720px);right:-31%;top:7%;}
   .lo-hero__pain[src]{opacity:.11;}
   .lo-sec{padding:50px 0;}
@@ -399,6 +432,23 @@
         </div>
       </div>
     </div>
+    <div class="lo-hero__side">
+    
+    <div class="lo-review">
+      <div class="lo-review__top">
+        <svg class="lo-review__g" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        <span class="lo-review__stars" role="img" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#FBBC04" d="M12 2.2l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 16.9 6 20.3l1.3-6.6L2.4 9.1l6.7-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#FBBC04" d="M12 2.2l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 16.9 6 20.3l1.3-6.6L2.4 9.1l6.7-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#FBBC04" d="M12 2.2l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 16.9 6 20.3l1.3-6.6L2.4 9.1l6.7-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#FBBC04" d="M12 2.2l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 16.9 6 20.3l1.3-6.6L2.4 9.1l6.7-.8z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#FBBC04" d="M12 2.2l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 16.9 6 20.3l1.3-6.6L2.4 9.1l6.7-.8z"/></svg>
+        </span>
+        <span><b>5.0</b> &middot; 6 Google reviews</span>
+      </div>
+      <p class="lo-review__quote">&ldquo;Dr. Sunil Jani took lots of time with me, and clearly explained his treatments and how they work.&rdquo;</p>
+      <p class="lo-review__by">Alice T. &middot; Google review</p>
+    </div>
     
     <div class="lo-formcard" id="lo-register">
       <div class="lo-formcard__head">
@@ -408,6 +458,7 @@
       <div class="lo-formcard__body">
         <div class="lo-form-off" role="status"><p><strong>Review copy</strong></p><p>The registration form is switched off here, so nothing on this page creates a lead. On the live page, the form sits in this card.</p></div>
       </div>
+    </div>
     </div>
   </div>
 </section>

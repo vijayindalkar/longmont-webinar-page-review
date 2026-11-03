@@ -158,7 +158,7 @@
 }
 .lo-door__tag{
   position:absolute;top:-13px;left:26px;background:var(--lo-orange);color:var(--lo-ink);
-  font-size:11.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
+  font-size:12px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
   padding:5px 12px;border-radius:99px;
 }
 .lo-door__num{
@@ -188,7 +188,7 @@
 }
 .lo-doc__cred{
   font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--lo-navy);margin:0 0 14px;
+  color:var(--lo-navy);margin:0 0 14px;text-wrap:balance;
 }
 .lo-quote{
   margin:26px 0 0;padding:26px 28px;background:var(--lo-navy);color:var(--lo-white);
@@ -247,7 +247,7 @@
 .lo-faq summary::-webkit-details-marker{display:none;}
 .lo-faq summary::after{
   content:"";position:absolute;right:24px;top:26px;width:11px;height:11px;
-  border-right:2.5px solid var(--lo-orange);border-bottom:2.5px solid var(--lo-orange);
+  border-right:2.5px solid var(--lo-navy);border-bottom:2.5px solid var(--lo-navy);
   transform:rotate(45deg);transition:transform .2s ease;
 }
 .lo-faq details[open] summary::after{transform:rotate(-135deg);top:30px;}
@@ -263,6 +263,10 @@
 .lo-band p{color:#d6e3f2;max-width:58ch;margin-left:auto;margin-right:auto;margin-bottom:30px;}
 .lo-band p.lo-band__meta{
   margin:24px auto 0;font-size:15.5px;line-height:1.55;color:#bcd2e8;
+}
+@media (min-width:480px){
+  .lo-band p.lo-band__meta{text-wrap:balance;}
+  .lo-nowrap{white-space:nowrap;}
 }
 .lo-foot{background:var(--lo-ink);color:#b9c2bb;padding:52px 0 40px;font-size:15.5px;}
 .lo-foot__grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin-bottom:34px;}
@@ -498,7 +502,7 @@
     <div>
       <p class="lo-eyebrow lo-eyebrow--dark">Your presenter</p>
       <h2>Dr. Sunil Jani</h2>
-      <p class="lo-doc__cred">Board-certified orthopedic surgeon &middot; Sports medicine &amp; orthobiologics</p>
+      <p class="lo-doc__cred">Board-certified orthopedic surgeon&nbsp;&middot; Sports medicine &amp; orthobiologics</p>
       <p>
         Dr. Jani is a board-certified orthopedic surgeon focused on sports medicine and orthobiologics.
         At Longmont Orthopedics, he evaluates conservative care, PRP, bone marrow concentrate, and surgery,
@@ -630,7 +634,7 @@
     </p>
     <a class="lo-btn" href="#lo-register" data-lo-scroll>Save my free spot</a>
     <p class="lo-band__meta">
-      Tuesday, November 17th at 7:00 PM Mountain &middot; Free &middot; Replay sent to all registrants
+      <span class="lo-nowrap">Tuesday, November 17th at 7:00 PM Mountain</span>&nbsp;&middot; Free &middot; Replay sent to all registrants
     </p>
   </div>
 </section>
